@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="CineApp, catálogo de películas con búsqueda, ordenamiento y favoritos." />
+        <meta name="theme-color" content="#102a43" />
+        <title>CineApp | Catálogo de películas</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container header-content">
+                <h1>CineApp</h1>
+                <p>Explora tu catálogo de películas</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="controls" aria-label="Controles del catálogo">
+                <label class="search-box">
+                    <span>Buscar por título</span>
+                    <input id="search-input" type="search" placeholder="Ej. The Matrix" autocomplete="off" />
+                </label>
+
+                <label class="sort-box">
+                    <span>Ordenar por</span>
+                    <select id="sort-select">
+                        <option value="default">Predeterminado</option>
+                        <option value="title-asc">Título A-Z</option>
+                        <option value="title-desc">Título Z-A</option>
+                        <option value="year-asc">Año: menor a mayor</option>
+                        <option value="year-desc">Año: mayor a menor</option>
+                    </select>
+                </label>
+
+                <label class="favorite-filter">
+                    <input id="favorites-only" type="checkbox" />
+                    <span>Solo favoritas</span>
+                </label>
+            </section>
+
+            <p id="status-message" class="status" aria-live="polite">Cargando películas...</p>
+            <section id="movie-list" class="movie-grid" aria-label="Catálogo de películas"></section>
+
+            <noscript>
+                <p class="status">CineApp necesita JavaScript activado para mostrar el catálogo de películas.</p>
+            </noscript>
+        </main>
+
+        <template id="movie-template">
+            <article class="movie-card">
+                <img class="movie-image" alt="" />
+                <div class="movie-content">
+                    <div class="movie-heading">
+                        <h2 class="movie-title"></h2>
+                        <button
+                            class="favorite-button"
+                            type="button"
+                            aria-label="Marcar como favorita"
+                            aria-pressed="false"
+                        >
+                            ☆
+                        </button>
+                    </div>
+                    <p class="movie-meta"></p>
+                    <span class="movie-genre"></span>
+                </div>
+            </article>
+        </template>
+
+        <script type="module" src="js/app.js"></script>
+    </body>
+</html>
